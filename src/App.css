@@ -1,38 +1,220 @@
-.App {
-  text-align: center;
-}
+/* src/styles.css (or any other CSS file) */
+@import url('https://fonts.googleapis.com/css2?family=Markazi+Text&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Karla&display=swap');
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.NavigationBarContainer{
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  background: white;
+  margin: 10px;
+  padding: 10px;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.NavigationBar{
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.NavigationBar a {
+  color: #495E57;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.NavigationBar a:hover {
+  color: #F4CE14;
+  cursor: pointer;
+}
+
+#NavigationBarLogoImg{
+  width: 180px;
+  height: 60px;
+}
+
+#NavigationBarLogo:hover{
+  border: 2px solid #F4CE14;
+  cursor: pointer;
+}
+
+.HeroSectionContainer{
+  display: flex;
+  justify-content: center;
+  background: #495E57;
+  gap: 200px;
+  /* flex-wrap: wrap; */
+  height: 350px;
+}
+
+.HeroSectionLeft{
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+#HeroSectionResturantName{
+  font-family: 'Markazi Text', serif;
+  font-size: 45px;
+  color: #F4CE14;
+  margin: 0;
+  margin-top: 50px;
+  padding: 0;
+  height: 35px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+#HeroSectionResturantLocation{
+  font-family: 'Markazi Text', serif;
+  font-size: 30px;
+  margin: 0;
+  padding: 0;
+  height: 50px;
+}
+
+.HeroSectionLeft p{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  font-family: 'Karla', sans-serif;
+  width: 250px;
+  height: 100px;
+}
+
+#ReserveTableBtn{
+  all: unset;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  color: black;
+  font-weight: bold;
+  background: #F4CE14;
+  width: 200px;
+  height: 50px;
+  border-radius: 25px;
+}
+
+#ReserveTableBtn:hover{
+  color: white;
+  background: #EE9972;
+  cursor: pointer;
+}
+
+#HeroSectionImg{
+  width: 200px;
+  height: 300px;
+  border-radius: 25px;
+  margin: 10px;
+
+}
+#ParagraphBtnContainer{
+display: flex;
+flex-direction: column;
+gap: 20px;
+}
+
+.HighlightsContainer{
+  margin-top: 60px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.HighlightsTitleAndBtn{
+  display: flex;
+  flex-wrap: wrap;
+  width: 60%;
+  justify-content: space-between;
+}
+
+#HighlightsOnlineMenuBtn{
+  all: unset;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #F4CE14;
+  color: black;
+  font-weight: bold;
+  border-radius: 25px;
+  width: 200px;
+  height: 50px;
+}
+
+#HighlightsOnlineMenuBtn:hover{
+  background: #EE9972;
+  color: white;
+  cursor: pointer;
+}
+
+.DishCardContainer{
+  background: #EDEFEE;
+  border-top-left-radius: 25px;
+  border-top-right-radius: 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 200px;
+}
+
+.DishCardNameAndPrice{
+  display: flex;
+  flex-wrap: wrap;
+  width: 80%;
+  justify-content: space-between;
+}
+
+#DishCardDishDescription{
+  width: 80%;
+  height: 40%;
+  font-size: 10px;
+}
+
+#DishCardName{
+  font-size: 15px;
+}
+
+#DishCardPrice{
+  font-size: 15px;
+  color: #EE9972;
+}
+
+#DishCardDishImg{
+  width: 100%;
+  height: 200px;
+  border-top-left-radius: 25px;
+  border-top-right-radius: 25px;
+}
+
+
+#BikeIcon{
+  width: 30px;
+  height: 20px;
+}
+
+.DishCardOrderOnlineAndBike{
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  width: 80%;
+  gap: 10px;
+  margin-bottom: 5%;
+}
+
+.DishCardOrderOnlineAndBike a{
+  text-decoration: none;
+  font-weight: bold;
+  color: #495E57;
+}
+.DishCardOrderOnlineAndBike a:hover{
+  color: #EE9972;
+}
+
+.HighlightsDishList{
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
 }

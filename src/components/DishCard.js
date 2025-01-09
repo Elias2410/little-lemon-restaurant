@@ -1,15 +1,21 @@
 import React from 'react'
+import BikeIcon from './assets/bikeIcon.png'
+
 
 
 const DishCard = (props) => {
   return (
-    <div className='container'>
-        <img src={props.dishImage}/>
-        <h1>{props.dishName}</h1>
-        <h1>{props.dishPrice}</h1>
-        <p>{props.dishDescription}</p>
-        <a href={props.dishOrderOnline}>Order Online</a>
-        <img src=""/>
+    <div className='DishCardContainer'>
+        <img src={props.dishImage} id='DishCardDishImg'/>
+        <div className='DishCardNameAndPrice'>
+          <h1 id='DishCardName'>{props.dishName}</h1>
+          <h1 id='DishCardPrice'>{props.dishPrice}</h1>
+        </div>
+        <p id='DishCardDishDescription'>{props.dishDescription}</p>
+        <div className='DishCardOrderOnlineAndBike'>
+          <a href={props.dishOrderOnline}>Order Online</a>
+          <img src={BikeIcon} id='BikeIcon'/>
+        </div>
     </div>
   )
 }
