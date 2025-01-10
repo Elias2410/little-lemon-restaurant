@@ -43,15 +43,23 @@
 
 .HeroSectionContainer{
   display: flex;
-  justify-content: center;
+  justify-content:space-evenly;
+  width: 100%;
   background: #495E57;
-  gap: 200px;
-  /* flex-wrap: wrap; */
-  height: 350px;
+  flex-wrap: wrap;
+  height: 25%;
 }
 
 .HeroSectionLeft{
   color: white;
+}
+
+.HeroSectionRight{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 250px;
+  height: 304px;
 }
 
 #HeroSectionResturantName{
@@ -59,7 +67,7 @@
   font-size: 45px;
   color: #F4CE14;
   margin: 0;
-  margin-top: 50px;
+  /* margin-top: 50px; */
   padding: 0;
   height: 35px;
 }
@@ -105,7 +113,7 @@
   width: 200px;
   height: 300px;
   border-radius: 25px;
-  margin: 10px;
+  /* margin: 10px; */
 
 }
 #ParagraphBtnContainer{
@@ -126,14 +134,17 @@ gap: 20px;
 .HighlightsTitleAndBtn{
   display: flex;
   flex-wrap: wrap;
-  width: 60%;
-  justify-content: space-between;
+  width: 100%;
+  justify-content:space-evenly;
+  margin-bottom: 30px;
+  font-family:Markazi Text;
 }
 
 #HighlightsOnlineMenuBtn{
   all: unset;
   display: flex;
   justify-content: center;
+  justify-items: center;
   align-items: center;
   background-color: #F4CE14;
   color: black;
@@ -151,12 +162,12 @@ gap: 20px;
 
 .DishCardContainer{
   background: #EDEFEE;
-  border-top-left-radius: 25px;
-  border-top-right-radius: 25px;
+  border-radius: 25px;
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 200px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .DishCardNameAndPrice{
@@ -213,8 +224,113 @@ gap: 20px;
 }
 
 .HighlightsDishList{
+  padding: 0px;
   display: flex;
   justify-content: center;
   gap: 20px;
   flex-wrap: wrap;
+}
+
+.TestimonialsSectionContainer{
+  background: #EDEFEE;
+  display: flex;
+  flex-direction: column;
+  justify-content:center;
+  align-items: center;
+  gap: 5%;
+  margin-top: 60px;
+  margin-bottom: 60px;
+}
+
+.UsersCardsContainer{
+  display: flex;
+  flex-wrap: wrap;
+  width: 80%;
+  justify-content:center;
+  gap: 10px;
+}
+
+.UserFeedbackCardContainer{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  background:white;
+  border-radius: 15px;
+  width: 200px;
+  margin-bottom: 60px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.UserFeedbackCardContainer p{
+  font-size: 10px;
+}
+
+.UserFeedbackCardImgAndComment{
+  display: flex;
+  justify-content: space-evenly;
+  gap: 10%;
+}
+
+.StarsContainer{
+  display:"flex";
+}
+
+#UserFeedbackCardUserName{
+  display: flex;
+  justify-content: center;
+  width: 80%;
+}
+
+.AboutSectionContainer{
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  justify-content:space-evenly;
+  align-items: center;
+  margin-top: 60px;
+  margin-bottom: 60px;
+  height: auto;
+}
+.AboutSectionLeftSide{
+  display: flex;
+  flex-direction: column;
+}
+.AboutSectionRightSide{
+  display: flex;
+  flex-direction: column;
+}
+
+.FooterSectionContainer{
+  background: #495E57;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 10px 0px;
+  justify-content: center;
+  color: white;
+  gap: 40px;
+}
+.FooterSectionContainer a{
+  all:unset;
+}
+.FooterSectionContainer a:hover{
+  cursor: pointer;
+  color: #EE9972;
+}
+.FooterSectionContainer ul{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  padding: 0px;
+  margin: 60px 0px;
+}
+.FooterSectionContainer h1{
+  color: #F4CE14;
+}
+
+#CopyRightText{
+  display: flex;
+  justify-content: center;
+  color: #495E57;
 }

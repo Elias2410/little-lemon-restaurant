@@ -8,7 +8,7 @@ const Highlights = () => {
   return (
     <section className='HighlightsContainer'>
         <div className='HighlightsTitleAndBtn'>
-          <h1>This week specials!</h1>
+          <h1 style={{margin:"0px",fontSize:"45px",color:"#495E57"}}>This week specials!</h1>
           <button id='HighlightsOnlineMenuBtn'>Online Menu</button>
         </div>
         <nav>

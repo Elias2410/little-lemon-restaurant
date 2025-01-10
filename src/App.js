@@ -7,6 +7,7 @@ import Testimonials from './components/Testimonials';
 import About from './components/About';
 import Footer from './components/Footer';
 
+
 function App() {
   return(
     <>
@@ -21,6 +22,9 @@ function App() {
       </main>
       <footer>
         <Footer/>
+        <div id='CopyRightText'>
+          <p>&copy;2025 Littel Lemon. All rights reserved</p>
+          </div>
       </footer>
     </>
   )

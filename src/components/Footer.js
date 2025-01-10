@@ -1,10 +1,10 @@
 import React from 'react'
+import FooterLogo from './assets/FooterLogo.png'
 
 const Footer = () => {
   return (
-    <section className='container'>
-        <ul>
-            <img src=''/>
+    <section className='FooterSectionContainer'>
+            <img style={{width:"200px",height:"300px",borderRadius:"25px",margin:"60px 0px"}} src={FooterLogo}/>
             <nav>
                 <ul>
                     <h1>Doormat Nav igation</h1>
@@ -27,12 +27,11 @@ const Footer = () => {
             <nav>
                 <ul>
                     <h1>Social Media Links</h1>
-                    <a href=''>Facebook</a>
-                    <a href=''>Instagram</a>
-                    <a href=''>Twitter</a>
+                    <a href="https://www.facebook.com/">Facebook</a>
+                    <a href="https://www.instagram.com/">Instagram</a>
+                    <a href="https://x.com/?lang=en">Twitter</a>
                 </ul>
             </nav>
-        </ul>
     </section>
   )
 }
