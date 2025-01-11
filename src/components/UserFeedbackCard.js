@@ -41,7 +41,7 @@ const UserFeedbackCard = (props) => {
             </div>
           ))}
         </div>
-        <p id='UserFeedbackCardUserName'>{props.userfeedback}</p>
+        <p id='UserFeedbackCardUserComment'>{props.userfeedback}</p>
     </div>
   )
 }

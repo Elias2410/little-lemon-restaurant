@@ -27,7 +27,7 @@ const Footer = () => {
             <nav>
                 <ul>
                     <h1>Social Media Links</h1>
-                    <a href="https://www.facebook.com/">Facebook</a>
+                    <a href="https://www.facebook.com/" is>Facebook</a>
                     <a href="https://www.instagram.com/">Instagram</a>
                     <a href="https://x.com/?lang=en">Twitter</a>
                 </ul>

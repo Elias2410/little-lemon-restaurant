@@ -4,43 +4,42 @@ import Bruchetta from './assets/Bruchetta.jpg'
 import LemonDessert from './assets/LemonDessert.jpg'
 
 const About = () => {
-
-    const containerStyle = {
-      position:"relative",
-      width:"200px",
-      height:"300px",
-      display:"flex",
-    };
-    const img1Style = {
-      position:"absolute",
-      top:0,
-      left:0,
-      width:"100%",
-      height:"100%",
-      objectFit:"cover",
-      zIndex: 1,
-      borderRadius:"25px"
-    };
-    const img2Style = {
-      position:"absolute",
-      top:"50px",
-      right:"50px",
-      width:"100%",
-      height:"100%",
-      objectFit:"cover",
-      zIndex: 2,
-      borderRadius:"25px"
-    };
-    const img3Style = {
-      position:"absolute",
-      top:"100px",
-      right:"100px",
-      width:"100%",
-      height:"100%",
-      objectFit:"cover",
-      zIndex: 2,
-      borderRadius:"25px"
-    };
+  const containerStyle = {
+    position:"relative",
+    width:"200px",
+    height:"300px",
+    display:"flex",
+  };
+  const img1Style = {
+    position:"absolute",
+    top:0,
+    left:0,
+    width:"100%",
+    height:"100%",
+    objectFit:"cover",
+    zIndex: 1,
+    borderRadius:"25px"
+  };
+  const img2Style = {
+    position:"absolute",
+    top:"50px",
+    right:"50px",
+    width:"100%",
+    height:"100%",
+    objectFit:"cover",
+    zIndex: 2,
+    borderRadius:"25px"
+  };
+  const img3Style = {
+    position:"absolute",
+    top:"100px",
+    right:"100px",
+    width:"100%",
+    height:"100%",
+    objectFit:"cover",
+    zIndex: 2,
+    borderRadius:"25px"
+  };
 
   return (
     <section className='AboutSectionContainer'>

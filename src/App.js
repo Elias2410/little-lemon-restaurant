@@ -1,10 +1,9 @@
 import './App.css';
 import React from 'react'
+import {BrowserRouter, Route, Routes} from "react-router-dom";
+import HomePage from './components/HomePage';
+import BookingPage from './components/BookingPage';
 import NavigationBar from './components/NavigationBar';
-import HeroSection from './components/HeroSection';
-import Highlights from './components/Highlights';
-import Testimonials from './components/Testimonials';
-import About from './components/About';
 import Footer from './components/Footer';
 
 
@@ -14,20 +13,20 @@ function App() {
       <header>
         <NavigationBar/>
       </header>
-      <main>
-        <HeroSection/>
-        <Highlights/>
-        <Testimonials/>
-        <About/>
-      </main>
+      <BrowserRouter>
+        <Routes>
+          <Route path='/' element={<HomePage/>} />
+          <Route path='/BookingPage' element={<BookingPage/>} />
+        </Routes>
+      </BrowserRouter>
       <footer>
         <Footer/>
         <div id='CopyRightText'>
           <p>&copy;2025 Littel Lemon. All rights reserved</p>
-          </div>
+        </div>
       </footer>
     </>
-  )
+  );
 }
 
 export default App;

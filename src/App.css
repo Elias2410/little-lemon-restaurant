@@ -2,6 +2,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Markazi+Text&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Karla&display=swap');
 
+/* div#root{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+} */
 
 .NavigationBarContainer{
   display: flex;
@@ -276,10 +283,11 @@ gap: 20px;
   display:"flex";
 }
 
-#UserFeedbackCardUserName{
+#UserFeedbackCardUserComment{
   display: flex;
   justify-content: center;
   width: 80%;
+  color: #495E57;
 }
 
 .AboutSectionContainer{
@@ -299,6 +307,7 @@ gap: 20px;
 .AboutSectionRightSide{
   display: flex;
   flex-direction: column;
+  flex-wrap: wrap;
 }
 
 .FooterSectionContainer{
@@ -332,4 +341,202 @@ gap: 20px;
   display: flex;
   justify-content: center;
   color: #495E57;
+}
+
+.BookingPageContainer{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  width: 100%;
+  justify-items: center;
+  justify-content: center;
+  align-items: center;
+  align-content:center;
+}
+.BookingPageContainer input{
+  margin: 5px 0px;
+}
+.BookingPageContainer label{
+  color: #495E57;
+}
+.BookingPageContainer h1{
+  color: #F4CE14;
+  font-family: 'Markazi Text', serif;
+  font-size: 45px;
+  margin-bottom: 0px;
+}
+.BookingPageContainer section{
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  justify-content:space-evenly;
+  margin-bottom: 30px;
+  gap: 80px;
+}
+.ReserveTableHeader{
+  display: flex;
+  flex-wrap: wrap;
+  width: 80%;
+  background: #495E57;
+  justify-content:space-evenly;
+  margin-bottom: 60px;
+}
+#ReserveTableHeaderLeftSide{
+  width: 25%;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+/* #ReserveTableHeaderTitle{
+  color: #F4CE14;
+  font-family: 'Markazi Text', serif;
+  font-size: 45px;
+  margin-bottom: 0px;
+} */
+#ReserveTableHeaderParagraph{
+  color: white;
+}
+#ReserveTableHeaderRightSide{
+  width: 25%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 60px 0px;
+}
+#ReserveTableHeaderImg{
+  border-radius: 25px;
+}
+.CustomerDetails{
+  background: white;
+}
+#CustomerDetailsLeftSide{
+  width: 25%;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+/* #CustomerDetailsTitle{
+  color: #F4CE14;
+  font-family: 'Markazi Text', serif;
+  font-size: 45px;
+  margin-bottom: 0px;
+} */
+#CustomerDetailsRightSide{
+  display: flex;
+  justify-content: center;
+  margin: 60px 0px;
+  width: 25%;
+}
+#CustomerDetailsImg{
+  width: 200;
+  height: 200px;
+  border-radius: 25px;
+}
+.ReservationDetails{
+  background: #EDEFEE;
+}
+#ReservationDetailsLeftSide{
+  width: 25%;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+#ReservationDetailsRightSide{
+  display: flex;
+  justify-content: center;
+  margin: 60px 0px;
+  width: 25%;
+}
+#ReservationDetailsImg{
+  width: 200;
+  height: 200px;
+  border-radius: 25px;
+}
+#SpecialRequestsLeftSide{
+  width: 25%;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  margin-bottom: 60px;
+}
+#SpecialRequestsRightSide{
+  display: flex;
+  justify-content: center;
+  margin: 60px 0px;
+}
+input,textarea,select,option {
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  padding: 10px;
+  margin: 5px 0;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  width: 100%;
+  box-sizing: border-box;
+}
+input,textarea:focus {
+  border-color:#F4CE14;
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+.ConfirmationDetails{
+  background: #EDEFEE;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 60px;
+}
+#Terms,#Subscribe{
+  display: flex;
+  width: 300px;
+}
+#TermsCheckbox,#SubscribeCheckbox{
+  width: 50px;
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  padding: 10px;
+  margin: 5px 0;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+/* #ConfirmationDetailsCheckboxs{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+} */
+#IAgreeOn{
+  width: 25%;
+}
+/* #TermsAndSubscribe{
+  width: 25%;
+} */
+/* #TermsAndSubscribe div{
+  background-color: #F4CE14;
+  display: flex;
+  align-content: space-between;
+} */
+#ConfirmationDetailsBtn{
+  all: unset;
+  display: flex;
+  justify-content: center;
+  justify-items: center;
+  align-items: center;
+  background-color: #F4CE14;
+  color: black;
+  font-weight: bold;
+  border-radius: 25px;
+  width: 200px;
+  height: 50px;
+}
+#ConfirmationDetailsBtn:hover{
+  color: white;
+  background: #EE9972;
+  cursor: pointer;
+}
+#ConfirmationDetailsTitle{
+  margin-top: 0px;
 }
