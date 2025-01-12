@@ -20,9 +20,32 @@ const BookingForm = () => {
         subscripeToUpdates:false,
     })
 
-    const Timings = ["11:00","12:00"]
-    const bookingTimeList = (time)=>{
-        Timings.map(<option value={time}>13/01/2025</option>)
+    const Timings = ["10:00","11:00","12:00","13:00","14:00","15:00","16:00","17:00","18:00","19:00","20:00","21:00","22:00",]
+    const availableTimeList = ()=>{
+        return(
+        Timings.map((availableTime,index)=>(<option value={availableTime} key={index}>{availableTime}</option>))
+        )
+    }
+
+    const Dates = ["13/01/2025","14/01/2025","15/01/2025","16/01/2025","17/01/2025",]
+    const availableDateList = ()=>{
+        return(
+        Dates.map((availableDate,index)=>(<option value={availableDate} key={index}>{availableDate}</option>))
+        )
+    }
+
+    const Gusts = [1,2,3,4,5,6,7,8,9,10]
+    const availableGustsSlots = ()=>{
+        return(
+        Gusts.map((availableGusts,index)=>(<option value={availableGusts} key={index}>{availableGusts}</option>))
+        )
+    }
+
+    const LocationSlots = ["Near the Window","Away from the Window","Close to the Entrance","Quiet Area","Close to Restrooms"]
+    const availableLocationSlots = ()=>{
+        return(
+        LocationSlots.map((availableLocation,index)=>(<option value={availableLocation} key={index}>{availableLocation}</option>))
+        )
     }
 
     const handleUserInputstChange = (e)=>{
@@ -32,6 +55,13 @@ const BookingForm = () => {
                 {...prev,[name]:type==='checkbox'?checked:value}
             )
         );
+    }
+
+    const OccasionList = ["Birthday","Anniversary","Engagement","Graduation","Retirement"]
+    const availableOccaionList = ()=>{
+        return(
+        OccasionList.map((availableOccaion,index)=>(<option value={availableOccaion} key={index}>{availableOccaion}</option>))
+        )
     }
 
     const handleSubmit = (e)=>{
@@ -60,39 +90,15 @@ const BookingForm = () => {
                 <legend id="ReservationDetailsTitle">Reservation Details</legend>
                 <label htmlFor='DateOfReservation'>Date of Reservation:</label>
                 <select name="bookingDate" value={userInputs.bookingDate} onChange={handleUserInputstChange} id='DateOfReservation'>
-                    <option value="13/01/2025">13/01/2025</option>
-                    <option value="14/01/2025">14/01/2025</option>
-                    <option value="15/01/2025">15/01/2025</option>
-                    <option value="16/01/2025">16/01/2025</option>
-                    <option value="17/01/2025">17/01/2025</option>
+                    {availableDateList()}
                 </select>
                 <label htmlFor='TimeOfReservation'>Time of Reservation:</label>
                 <select name="bookingTime" value={userInputs.bookingTime} onChange={handleUserInputstChange} id='TimeOfReservation'>
-                    <option value="10:00 AM">10:00 AM</option>
-                    <option value="11:00 AM">11:00 AM</option>
-                    <option value="12:00 PM">12:00 PM</option>
-                    <option value="13:00 PM">13:00 PM</option>
-                    <option value="14:00 PM">14:00 PM</option>
-                    <option value="15:00 PM">15:00 PM</option>
-                    <option value="16:00 PM">16:00 PM</option>
-                    <option value="17:00 PM">17:00 PM</option>
-                    <option value="18:00 PM">18:00 PM</option>
-                    <option value="19:00 PM">19:00 PM</option>
-                    <option value="20:00 PM">20:00 PM</option>
-                    <option value="21:00 PM">21:00 PM</option>
-                    <option value="22:00 PM">22:00 PM</option>
+                    {availableTimeList()}
                 </select>
                 <label htmlFor='NumberOfGuests'>Number of Guests:</label>
                 <select name="numOfGuests" value={userInputs.numOfGuests} onChange={handleUserInputstChange} id='NumberOfGuests'>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                    <option value="6">6</option>
-                    <option value="7">7</option>
-                    <option value="8">8</option>
-                    <option value="9">9</option>
-                    <option value="1">10</option>
+                    {availableGustsSlots()}
                 </select>
             </div>
             <div id="ReservationDetailsRightSide">
@@ -109,19 +115,11 @@ const BookingForm = () => {
                 </select>
                 <label htmlFor='TableLocation'>Table Location:</label>
                 <select name="tableLocation" value={userInputs.tableLocation} onChange={handleUserInputstChange} id='TableLocation'>
-                    <option value="Near the Window">Near the Window</option>
-                    <option value="Away from the Window">Away from the Window</option>
-                    <option value="Close to the Entrance">Close to the Entrance</option>
-                    <option value="Quiet Area">Quiet Area</option>
-                    <option value="Close to Restrooms">Close to Restrooms</option>
+                    {availableLocationSlots()}
                 </select>
                 <label htmlFor='Occasion'>Occasion:</label>
                 <select name="tableOccasion" value={userInputs.tableOccasion} onChange={handleUserInputstChange} id='Occasion'>
-                    <option value="Birthday">Birthday</option>
-                    <option value="Anniversary">Anniversary</option>
-                    <option value="Engagement">Engagement</option>
-                    <option value="Graduation">Graduation</option>
-                    <option value="Retirement">Retirement</option>
+                    {availableOccaionList()}
                 </select>
                 <label htmlFor='AdditionalRequest'>Additional Requests/Comments:</label>
                 <textarea name="additionalRequest" value={userInputs.additionalRequest} onChange={handleUserInputstChange} id='AdditionalRequest'></textarea>
