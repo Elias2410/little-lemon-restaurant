@@ -2,7 +2,7 @@ import './App.css';
 import React from 'react'
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import HomePage from './components/HomePage';
-import BookingPage from './components/BookingPage';
+import BookingForm from './components/BookingPage';
 import NavigationBar from './components/NavigationBar';
 import Footer from './components/Footer';
 
@@ -16,7 +16,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path='/' element={<HomePage/>} />
-          <Route path='/BookingPage' element={<BookingPage/>} />
+          <Route path='/BookingForm' element={<BookingForm/>} />
         </Routes>
       </BrowserRouter>
       <footer>
