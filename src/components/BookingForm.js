@@ -3,22 +3,16 @@ import CustomerDetails from './assets/CustomerDetails.jpg'
 import ReserveTable from './assets/ReservTable.jpg'
 import accessibility from './assets/accessibility.jpg'
 
-const BookingForm = () => {
+const BookingForm = ({userInputs, setUserInputs}) => {
 
-    const [userInputs,setUserInputs]=useState({
-        userFullName:'',
-        userEmail:'',
-        userPhoneNumber:'05',
-        bookingDate:'',
-        bookingTime:'',
-        numOfGuests:'',
-        tablePreference:'',
-        tableLocation:'',
-        tableOccasion:'',
-        additionalRequest:'',
-        termsAndCondition:false,
-        subscripeToUpdates:false,
-    })
+    const handleUserInputstChange = (e)=>{
+        const {name, type, value, checked,} = e.target;
+        setUserInputs(
+            (prev)=>(
+                {...prev,[name]:type==='checkbox'?checked:value}
+            )
+        );
+    }
 
     const Timings = ["10:00","11:00","12:00","13:00","14:00","15:00","16:00","17:00","18:00","19:00","20:00","21:00","22:00",]
     const availableTimeList = ()=>{
@@ -30,37 +24,36 @@ const BookingForm = () => {
     const Dates = ["13/01/2025","14/01/2025","15/01/2025","16/01/2025","17/01/2025",]
     const availableDateList = ()=>{
         return(
-        Dates.map((availableDate,index)=>(<option value={availableDate} key={index}>{availableDate}</option>))
+        Dates.map(
+            (availableDate,index)=>(<option value={availableDate} key={index}>{availableDate}</option>)
+        )
         )
     }
 
     const Gusts = [1,2,3,4,5,6,7,8,9,10]
     const availableGustsSlots = ()=>{
         return(
-        Gusts.map((availableGusts,index)=>(<option value={availableGusts} key={index}>{availableGusts}</option>))
+        Gusts.map(
+            (availableGusts,index)=>(<option value={availableGusts} key={index}>{availableGusts}</option>)
+        )
         )
     }
 
     const LocationSlots = ["Near the Window","Away from the Window","Close to the Entrance","Quiet Area","Close to Restrooms"]
     const availableLocationSlots = ()=>{
         return(
-        LocationSlots.map((availableLocation,index)=>(<option value={availableLocation} key={index}>{availableLocation}</option>))
+        LocationSlots.map(
+            (availableLocation,index)=>(<option value={availableLocation} key={index}>{availableLocation}</option>)
         )
-    }
-
-    const handleUserInputstChange = (e)=>{
-        const {name, type, value, checked,} = e.target;
-        setUserInputs(
-            (prev)=>(
-                {...prev,[name]:type==='checkbox'?checked:value}
-            )
-        );
+        )
     }
 
     const OccasionList = ["Birthday","Anniversary","Engagement","Graduation","Retirement"]
     const availableOccaionList = ()=>{
         return(
-        OccasionList.map((availableOccaion,index)=>(<option value={availableOccaion} key={index}>{availableOccaion}</option>))
+        OccasionList.map(
+            (availableOccaion,index)=>(<option value={availableOccaion} key={index}>{availableOccaion}</option>)
+        )
         )
     }
 
@@ -71,20 +64,6 @@ const BookingForm = () => {
 
     return (
     <form className='BookingPageContainer' onSubmit={handleSubmit}>
-        <fieldset className='CustomerDetails'>
-            <div id="CustomerDetailsLeftSide">
-                <legend id="CustomerDetailsTitle">Customer Details</legend>
-                <label htmlFor='FullName'>Full Name:</label>
-                <input name="userFullName" value={userInputs.userFullName} onChange={handleUserInputstChange} id='FullName' type='text'/>
-                <label htmlFor='EmailAddress'>Email Address:</label>
-                <input name="userEmail" value={userInputs.userEmail} onChange={handleUserInputstChange} id='EmailAddress' type='email'/>
-                <label htmlFor='PhoneNumbe'>Phone Numbe:</label>
-                <input name="userPhoneNumber" value={userInputs.userPhoneNumber} onChange={handleUserInputstChange} id='PhoneNumber' type='number'/>
-            </div>
-            <div id="CustomerDetailsRightSide">
-                <img id="CustomerDetailsImg" src={CustomerDetails}/>
-            </div>
-        </fieldset>
         <fieldset className='ReservationDetails'>
             <div id="ReservationDetailsLeftSide">
                 <legend id="ReservationDetailsTitle">Reservation Details</legend>
@@ -126,6 +105,20 @@ const BookingForm = () => {
             </div>
             <div id="SpecialRequestsRightSide">
                 <img src={accessibility} style={{width:"50%",height:"50%",minHeight:"184px"}}/>
+            </div>
+        </fieldset>
+        <fieldset className='CustomerDetails'>
+            <div id="CustomerDetailsLeftSide">
+                <legend id="CustomerDetailsTitle">Customer Details</legend>
+                <label htmlFor='FullName'>Full Name:</label>
+                <input name="userFullName" value={userInputs.userFullName} onChange={handleUserInputstChange} id='FullName' type='text'/>
+                <label htmlFor='EmailAddress'>Email Address:</label>
+                <input name="userEmail" value={userInputs.userEmail} onChange={handleUserInputstChange} id='EmailAddress' type='email'/>
+                <label htmlFor='PhoneNumbe'>Phone Numbe:</label>
+                <input name="userPhoneNumber" value={userInputs.userPhoneNumber} onChange={handleUserInputstChange} id='PhoneNumber' type='number'/>
+            </div>
+            <div id="CustomerDetailsRightSide">
+                <img id="CustomerDetailsImg" src={CustomerDetails}/>
             </div>
         </fieldset>
         <fieldset className='ConfirmationDetails'>
