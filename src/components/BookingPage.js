@@ -2,7 +2,7 @@ import React from 'react'
 import ReserveTable from './assets/ReservTable.jpg'
 import BookingForm from './BookingForm'
 
-const BookingPage = ({userInputs, setUserInputs}) => {
+const BookingPage = ({state,dispatch}) => {
   return (
     <div className='BookingPageContainer'>
         <header className='ReserveTableHeader'>
@@ -14,7 +14,7 @@ const BookingPage = ({userInputs, setUserInputs}) => {
                 <img id="ReserveTableHeaderImg" src={ReserveTable}/>
             </div>
         </header>
-        <BookingForm userInputs={userInputs} setUserInputs={setUserInputs}/>
+        <BookingForm state={state} dispatch={dispatch}/>
     </div>
   )
 }

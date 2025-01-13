@@ -1,28 +1,12 @@
 import './App.css';
-import React, { useReducer } from 'react'
+import React, {useReducer} from 'react'
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import HomePage from './components/HomePage';
 import NavigationBar from './components/NavigationBar';
 import Footer from './components/Footer';
 import BookingPage from './components/BookingPage';
-import { useState,useReducer } from 'react';
 
 function App() {
-
-  // const [userInputs,setUserInputs]=useState({
-  //   userFullName:'',
-  //   userEmail:'',
-  //   userPhoneNumber:'05',
-  //   bookingDate:'',
-  //   bookingTime:'',
-  //   numOfGuests:'',
-  //   tablePreference:'',
-  //   tableLocation:'',
-  //   tableOccasion:'',
-  //   additionalRequest:'',
-  //   termsAndCondition:false,
-  //   subscripeToUpdates:false,
-  // })
 
   const userInputs = {
     userFullName:'',
@@ -70,9 +54,6 @@ function App() {
 
   const [state,dispatch] = useReducer(userInputsReducer,userInputs)
 
-
-
-
   return(
     <>
       <header>
@@ -81,7 +62,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path='/' element={<HomePage/>} />
-          <Route path='/BookingPage' element={<BookingPage userInputs={userInputs} setUserInputs={setUserInputs}/>} />
+          <Route path='/BookingPage' element={<BookingPage state={state} dispatch={dispatch}/>} />
         </Routes>
       </BrowserRouter>
       <footer>
