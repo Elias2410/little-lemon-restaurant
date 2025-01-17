@@ -1,127 +1,202 @@
-import React from 'react'
-import CustomerDetails from './assets/CustomerDetails.jpg'
-import ReserveTable from './assets/ReservTable.jpg'
-import accessibility from './assets/accessibility.jpg'
+import React, { useEffect, useState } from "react";
+import CustomerDetails from "./assets/CustomerDetails.jpg";
+import ReserveTable from "./assets/ReservTable.jpg";
+import accessibility from "./assets/accessibility.jpg";
 
-const BookingForm = ({state,dispatch}) => {
+const BookingForm = ({ state, dispatch }) => {
+  const [availableTimings, setAvailableTimings] = useState([]);
+  const [selectedDate, setSelectedDate] = useState(state.bookingDate || "");
 
-    const handleUserInputstChange = (e) => {
-        const {name, type, value, checked} = e.target
-        dispatch({type:`SET_${name.toUpperCase()}`, payload:type === 'checkbox' ? checked : value})
+  const seededRandom = (seed) => {
+    const m = 2 ** 35 - 31;
+    const a = 185852;
+    let s = seed % m;
+    return () => (s = (s * a) % m) / m;
+  };
+
+  const fetchAPI = (date) => {
+    const result = [];
+    const random = seededRandom(date.getDate());
+
+    for (let i = 17; i <= 23; i++) {
+      if (random() < 0.5) {
+        result.push(`${i}:00`);
+      }
+      if (random() < 0.5) {
+        result.push(`${i}:30`);
+      }
     }
+    return result;
+  };
 
-    const Timings = ["10:00","11:00","12:00","13:00","14:00","15:00","16:00","17:00","18:00","19:00","20:00","21:00","22:00",]
-    const availableTimeList = () => {
-        return (
-            Timings.map((availableTime,index) => (<option value={availableTime} key={index}>{availableTime}</option>))
-        )
+  useEffect(() => {
+    if (selectedDate) {
+      const isoDate = new Date(selectedDate);
+      const result = fetchAPI(isoDate);
+      setAvailableTimings(result);
     }
+  }, [selectedDate]);
 
-    const Dates = ["13/01/2025","14/01/2025","15/01/2025","16/01/2025","17/01/2025",]
-    const availableDateList = () => {
-        return (
-            Dates.map((availableDate,index) => (<option value={availableDate} key={index}>{availableDate}</option>))
-        )
+  const handleUserInputChange = (e) => {
+    const { name, value, type, checked } = e.target;
+    dispatch({
+      type: `SET_${name.toUpperCase()}`,
+      payload: type === "checkbox" ? checked : value,
+    });
+
+    if (name === "DATE") {
+      setSelectedDate(value);
     }
+  };
 
-    const Gusts = [1,2,3,4,5,6,7,8,9,10]
-    const availableGustsSlots = () => {
-        return (
-            Gusts.map((availableGusts,index) => (<option value={availableGusts} key={index}>{availableGusts}</option>))
-        )
-    }
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log("Form submitted with state:", state);
+  };
 
-    const LocationSlots = ["Near the Window","Away from the Window","Close to the Entrance","Quiet Area","Close to Restrooms"]
-    const availableLocationSlots = () => {
-        return (
-            LocationSlots.map((availableLocation,index) => (<option value={availableLocation} key={index}>{availableLocation}</option>))
-        )
-    }
+  const availableTimeList = () => {
+    return availableTimings.map((time, index) => (
+      <option value={time} key={index}>
+        {time}
+      </option>
+    ));
+  };
 
-    const OccasionList = ["Birthday","Anniversary","Engagement","Graduation","Retirement"]
-    const availableOccaionList = () => {
-        return (
-            OccasionList.map((availableOccaion,index) => (<option value={availableOccaion} key={index}>{availableOccaion}</option>))
-        )
-    }
+  const dates = ["2025-01-13", "2025-01-14", "2025-01-15", "2025-01-16", "2025-01-17"];
+  const availableDateList = () => {
+    return dates.map((date, index) => (
+      <option value={date} key={index}>
+        {date}
+      </option>
+    ));
+  };
 
-    const handleSubmit = (e) => {
-        e.preventDefault()
-        console.log(state)
-    }
+  const gusts = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+  const availableGuestSlots = () => {
+    return gusts.map((guest, index) => (
+      <option value={guest} key={index}>
+        {guest}
+      </option>
+    ));
+  };
 
-    return (
-        <form className='BookingPageContainer' onSubmit={handleSubmit} role="form">
-            <fieldset className='ReservationDetails' aria-labelledby="ReservationDetailsTitle">
-                <div id="ReservationDetailsLeftSide">
-                    <legend id="ReservationDetailsTitle">Reservation Details</legend>
-                    <label htmlFor='DateOfReservation'>Date of Reservation:</label>
-                    <select name="DATE" value={state.bookingDate} onChange={handleUserInputstChange} id='DateOfReservation' aria-required="true">
-                        {availableDateList()}
-                    </select>
-                    <label htmlFor='TimeOfReservation'>Time of Reservation:</label>
-                    <select name="TIME" value={state.bookingTime} onChange={handleUserInputstChange} id='TimeOfReservation' aria-required="true">
-                        {availableTimeList()}
-                    </select>
-                    <label htmlFor='NumberOfGuests'>Number of Guests:</label>
-                    <select name="GUESTS" value={state.numOfGuests} onChange={handleUserInputstChange} id='NumberOfGuests' aria-required="true">
-                        {availableGustsSlots()}
-                    </select>
-                </div>
-                <div id="ReservationDetailsRightSide">
-                    <img id="ReservationDetailsImg" src={ReserveTable} alt="Reserve Table"/>
-                </div>
-            </fieldset>
-            <fieldset className='SpecialRequests' aria-labelledby="SpecialRequestsTitle">
-                <div id="SpecialRequestsLeftSide">
-                    <legend id="SpecialRequestsTitle">Special Requests</legend>
-                    <label htmlFor='TablePreference'>Table Preference:</label>
-                    <select name="PREFERENCE" value={state.tablePreference} onChange={handleUserInputstChange} id='TablePreference' aria-required="true">
-                        <option value="Indoor">Indoor</option>
-                        <option value="Outdoor">Outdoor</option>
-                    </select>
-                    <label htmlFor='TableLocation'>Table Location:</label>
-                    <select name="LOCATION" value={state.tableLocation} onChange={handleUserInputstChange} id='TableLocation' aria-required="true">
-                        {availableLocationSlots()}
-                    </select>
-                    <label htmlFor='Occasion'>Occasion:</label>
-                    <select name="OCCASION" value={state.tableOccasion} onChange={handleUserInputstChange} id='Occasion' aria-required="true">
-                        {availableOccaionList()}
-                    </select>
-                    <label htmlFor='AdditionalRequest'>Additional Requests/Comments:</label>
-                    <textarea name="REQUEST" value={state.additionalRequest} onChange={handleUserInputstChange} id='AdditionalRequest' aria-required="true"></textarea>
-                </div>
-                <div id="SpecialRequestsRightSide">
-                    <img src={accessibility} alt="Accessibility Icon" style={{width:"50%",height:"50%",minHeight:"184px"}}/>
-                </div>
-            </fieldset>
-            <fieldset className='CustomerDetails' aria-labelledby="CustomerDetailsTitle">
-                <div id="CustomerDetailsLeftSide">
-                    <legend id="CustomerDetailsTitle">Customer Details</legend>
-                    <label htmlFor='FullName'>Full Name:</label>
-                    <input name="NAME" value={state.userFullName} onChange={handleUserInputstChange} id='FullName' type='text' aria-required="true"/>
-                    <label htmlFor='EmailAddress'>Email Address:</label>
-                    <input name="EMAIL" value={state.userEmail} onChange={handleUserInputstChange} id='EmailAddress' type='email' aria-required="true"/>
-                    <label htmlFor='PhoneNumber'>Phone Number:</label>
-                    <input name="PHONE" value={state.userPhoneNumber} onChange={handleUserInputstChange} id='PhoneNumber' type='number' aria-required="true"/>
-                </div>
-                <div id="CustomerDetailsRightSide">
-                    <img id="CustomerDetailsImg" src={CustomerDetails} alt="Customer Details"/>
-                </div>
-            </fieldset>
-            <fieldset className='ConfirmationDetails' aria-labelledby="ConfirmationDetailsTitle">
-                <legend id="ConfirmationDetailsTitle">Confirmation Details</legend>
-                <div style={{display:"flex",gap:"50px"}}>
-                    <p style={{color:"#495E57",fontWeight:"bold"}}>I Agree to:</p>
-                    <div style={{display:"flex",flexDirection:"column",alignItems:"center"}}>
-                        <div id='Terms'><input name="TERMS" checked={state.termsAndCondition} onChange={handleUserInputstChange} id='TermsCheckbox' type='checkbox' aria-required="true"/><label htmlFor='TermsCheckbox'><a href="#terms">Terms and Conditions</a></label></div>
-                        <div id='Subscribe'><input name="UPDATES" checked={state.subscripeToUpdates} onChange={handleUserInputstChange} id='SubscribeCheckbox' type='checkbox'/><label htmlFor='SubscribeCheckbox'><a href="#subscribe">Subscribe to Updates/Promotions</a></label></div>
-                    </div>
-                </div>
-                <button id='ConfirmationDetailsBtn' type='submit'>Confirm & Submit</button>
-            </fieldset>
-        </form>
-    )
-}
+  const LocationSlots = [
+    "Near the Window",
+    "Away from the Window",
+    "Close to the Entrance",
+    "Quiet Area",
+    "Close to Restrooms",
+  ];
+  const availableLocationSlots = () => {
+    return LocationSlots.map((location, index) => (
+      <option value={location} key={index}>
+        {location}
+      </option>
+    ));
+  };
 
-export default BookingForm
+  const OccasionList = ["Birthday", "Anniversary", "Engagement", "Graduation", "Retirement"];
+  const availableOccasionList = () => {
+    return OccasionList.map((occasion, index) => (
+      <option value={occasion} key={index}>
+        {occasion}
+      </option>
+    ));
+  };
+
+  return (
+    <form className="BookingPageContainer" onSubmit={handleSubmit} role="form">
+      <fieldset className="ReservationDetails" aria-labelledby="ReservationDetailsTitle">
+        <legend id="ReservationDetailsTitle">Reservation Details</legend>
+        <label htmlFor="DateOfReservation">Date of Reservation:</label>
+        <select
+          name="DATE"
+          value={selectedDate}
+          onChange={handleUserInputChange}
+          id="DateOfReservation"
+          aria-required="true"
+        >
+          {availableDateList()}
+        </select>
+        <label htmlFor="TimeOfReservation">Time of Reservation:</label>
+        <select
+          name="TIME"
+          value={state.bookingTime}
+          onChange={handleUserInputChange}
+          id="TimeOfReservation"
+          aria-required="true"
+        >
+          {availableTimeList()}
+        </select>
+        <label htmlFor="NumberOfGuests">Number of Guests:</label>
+        <select
+          name="GUESTS"
+          value={state.numOfGuests}
+          onChange={handleUserInputChange}
+          id="NumberOfGuests"
+          aria-required="true"
+        >
+          {availableGuestSlots()}
+        </select>
+      </fieldset>
+      <fieldset className="SpecialRequests" aria-labelledby="SpecialRequestsTitle">
+        <legend id="SpecialRequestsTitle">Special Requests</legend>
+        <label htmlFor="TablePreference">Table Preference:</label>
+        <select
+          name="PREFERENCE"
+          value={state.tablePreference}
+          onChange={handleUserInputChange}
+          id="TablePreference"
+          aria-required="true"
+        >
+          <option value="Indoor">Indoor</option>
+          <option value="Outdoor">Outdoor</option>
+        </select>
+        <label htmlFor="TableLocation">Table Location:</label>
+        <select
+          name="LOCATION"
+          value={state.tableLocation}
+          onChange={handleUserInputChange}
+          id="TableLocation"
+          aria-required="true"
+        >
+          {availableLocationSlots()}
+        </select>
+        <label htmlFor="Occasion">Occasion:</label>
+        <select
+          name="OCCASION"
+          value={state.tableOccasion}
+          onChange={handleUserInputChange}
+          id="Occasion"
+          aria-required="true"
+        >
+          {availableOccasionList()}
+        </select>
+      </fieldset>
+      <fieldset className="CustomerDetails" aria-labelledby="CustomerDetailsTitle">
+        <legend id="CustomerDetailsTitle">Customer Details</legend>
+        <label htmlFor="FullName">Full Name:</label>
+        <input
+          name="NAME"
+          value={state.userFullName}
+          onChange={handleUserInputChange}
+          id="FullName"
+          type="text"
+          aria-required="true"
+        />
+        <label htmlFor="EmailAddress">Email Address:</label>
+        <input
+          name="EMAIL"
+          value={state.userEmail}
+          onChange={handleUserInputChange}
+          id="EmailAddress"
+          type="email"
+          aria-required="true"
+        />
+      </fieldset>
+      <button type="submit">Confirm & Submit</button>
+    </form>
+  );
+};
+
+export default BookingForm;

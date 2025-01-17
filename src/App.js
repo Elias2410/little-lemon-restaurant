@@ -56,6 +56,7 @@ function App() {
 
   return(
     <>
+      <script src="https://raw.githubusercontent.com/courseraap/capstone/main/api.js"></script>
       <header>
         <NavigationBar/>
       </header>
