@@ -6,8 +6,8 @@ import LemonDessert from './assets/LemonDessert.jpg'
 const About = () => {
   const containerStyle = {
     position:"relative",
-    width:"200px",
-    height:"300px",
+    width:"150px",
+    height:"250px",
     display:"flex",
   };
   const img1Style = {
@@ -22,8 +22,8 @@ const About = () => {
   };
   const img2Style = {
     position:"absolute",
-    top:"50px",
-    right:"50px",
+    top:"25px",
+    right:"25px",
     width:"100%",
     height:"100%",
     objectFit:"cover",
@@ -32,8 +32,8 @@ const About = () => {
   };
   const img3Style = {
     position:"absolute",
-    top:"100px",
-    right:"100px",
+    top:"50px",
+    right:"50px",
     width:"100%",
     height:"100%",
     objectFit:"cover",
@@ -44,10 +44,10 @@ const About = () => {
   return (
     <section className='AboutSectionContainer'>
       <div className='AboutSectionLeftSide'>
-        <p style={{margin:"0px",color:"#F4CE14",fontFamily:'Markazi Text',fontSize:"65px",fontWeight:"bold"}}>Little Lemon</p>
+        <p className='title-font secondary-color'>Little Lemon</p>
         <p style={{margin:"0px",color:"#495E57",fontFamily:'Markazi Text',fontSize:"35px"}}>Chicago</p>
-        <p className='ParagraphWithMinWidth' style={{width:"350px",height:"200px"}}>Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet. Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. </p>
-      </div>
+        <p className='ParagraphWithMinWidth text-fo
+nt paragraph' style={{width:"350px",height:"150px"}}>Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet. Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. </p>      </div>
       <div className='AboutSectionRightSide' style={containerStyle}>
         <img style={img1Style} src={GreekSalad}/>
         <img style={img2Style} src={Bruchetta}/>

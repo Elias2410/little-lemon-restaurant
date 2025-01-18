@@ -13,8 +13,9 @@
 /* Define Reusable Classes */
 .title-font {
     font-family: var(--title-font);
-    font-size: 35px;
+    font-size: 45px;
     font-weight: bold;
+    margin: 0px;
 }
 
 .text-font {
@@ -27,6 +28,12 @@
 
 .secondary-color {
     color: var(--secondary-color);
+}
+.accent-color {
+    color: var(--accent-color);
+}
+.paragraph{
+  min-width: 325px;
 }
 
 /* Remove Spinners from number inputs */
@@ -87,11 +94,14 @@
 /* Hero Section Styles */
 .HeroSectionContainer {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
     width: 100%;
     background: var(--primary-color);
     flex-wrap: wrap;
     height: 25%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    gap: 150px;
 }
 
 .HeroSectionLeft {
@@ -106,13 +116,13 @@
     height: 304px;
 }
 
-#HeroSectionResturantName {
+/* #HeroSectionResturantName {
     @extend .title-font;
     color: var(--secondary-color);
     margin: 0;
     padding: 0;
     height: 35px;
-}
+} */
 
 #HeroSectionResturantLocation {
     font-family: var(--title-font);
@@ -160,7 +170,8 @@
 .paragraph-button-container {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    align-items: left;
+    gap: 0px;
 }
 
 /* Highlights Styles */
@@ -283,6 +294,8 @@
     gap: 5%;
     margin-top: 60px;
     margin-bottom: 60px;
+    padding-top: 20px;
+    padding-bottom: 20px;
 }
 
 .UsersCardsContainer {
@@ -291,6 +304,7 @@
     width: 80%;
     justify-content: center;
     gap: 10px;
+    margin-bottom: 20px;
 }
 
 /* User Feedback Card Styles */
@@ -302,8 +316,9 @@
     align-items: center;
     background: white;
     border-radius: 15px;
-    width: 200px;
-    margin-bottom: 60px;
+    width: 250px;
+    height: 150px;
+    margin-bottom: 20px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
@@ -319,6 +334,7 @@
 
 .StarsContainer {
     display: flex;
+    margin-bottom: 10px;
 }
 
 #UserFeedbackCardUserComment {
@@ -339,7 +355,48 @@
     margin-bottom: 60px;
     height: auto;
 }
-
+.AboutSectionRightSide{
+    position:relative;
+  width:200px;
+  height:300px;
+  display:flex;
+}
+.about-image-container{
+    position:relative;
+    width:200px;
+    height:300px;
+    display:flex;
+  }
+  .about-image {
+    position:"absolute";
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    objectFit:"cover";
+    zIndex: 1;
+    borderRadius:"25px";
+  }
+  .second-image{
+    position:"absolute";
+    top:"50px";
+    right:"50px";
+    width:100%;
+    height:100%;
+    objectFit:"cover";
+    zIndex: 2;
+    borderRadius:"25px";
+  }
+  .third-image{
+    position:"absolute";
+    top:"100px";
+    right:"100px";
+    width:100%;
+    height:100%;
+    objectFit:"cover";
+    zIndex: 2;
+    borderRadius:"25px";
+  }
 .AboutSectionLeftSide {
     display: flex;
     flex-direction: column;
@@ -401,10 +458,10 @@
     flex-direction: column;
     flex-wrap: wrap;
     width: 100%;
-    justify-items: center;
-    justify-content: center;
+    /* justify-items: center;
+    justify-content: center; */
     align-items: center;
-    align-content: center;
+    /* align-content: center; */
 }
 
 .BookingPageContainer input {
@@ -425,7 +482,7 @@
    @extend .title-font;
     color: var(--primary-color);
     margin-bottom: 0;
-  font-weight: bold;
+    font-weight: bold;
 }
 
 .BookingPageContainer fieldset,
@@ -439,35 +496,38 @@
 /* Header styles */
 .ReserveTableHeader {
     display: flex;
-    flex-wrap: wrap;
-    width: 80%;
+    /* flex-wrap: wrap; */
+    width: 100%;
     background: var(--primary-color);
-    justify-content: space-evenly;
-    margin-bottom: 60px;
+    /* justify-content:left; */
+    margin-bottom: 30px;
+    gap: 150px;
+    height: 325px;
 }
 
 #ReserveTableHeaderLeftSide {
-    width: 25%;
+    width: 325px;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
+    justify-content: center;
 }
 
-#ReserveTableHeaderParagraph {
+/* #ReserveTableHeaderParagraph {
     color: white;
-}
+} */
 
 #ReserveTableHeaderRightSide {
-    width: 25%;
     display: flex;
-    flex-direction: column;
+    margin-top: 25px;
+    margin-bottom: 25px;
     align-items: center;
-    flex-wrap: wrap;
-    margin: 60px 0;
 }
 
 #ReserveTableHeaderImg {
     border-radius: 25px;
+    width: 300px;
+    height: 250px;
 }
 
 /* Customer details Styles */
@@ -682,20 +742,6 @@ label {
     border: 2px solid red;
 }
 
-
-/* Media Queries for Responsiveness */
-@media (max-width: 768px) {
-  .NavigationBarContainer {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .HeroSectionContainer {
-    flex-direction: column;
-    align-items: center;
-  }
-}
-
 main{
   width: 100%;
 }
@@ -704,6 +750,105 @@ select, textarea, input{
   min-width: 250px;
 }
 
-.ParagraphWithMinWidth{
-  min-width: 325px;
+#bookingFormTitle{
+    width: 305px;
+    margin-bottom: 21px;
 }
+
+#ReserveTableHeaderParagraph{
+    color: white;
+}
+
+#BookingConfirmationPage{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* margin: 60px; */
+    margin-top: 100px;
+    margin-bottom: 100px
+}
+
+#BookingConfirmationPageMessage {
+    width: 343px;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+    .NavigationBarContainer {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .HeroSectionContainer {
+      flex-direction: column;
+      align-items: center;
+      gap:10px;
+      padding-top: 10px;
+      padding-bottom: 10px;
+    }
+  
+    .ReserveTableHeader {
+      flex-direction: column;
+      align-items: center;
+      height: 25%;
+      gap:0px
+    }
+  
+    .paragraph-button-container {
+      align-items: center;
+    }
+  
+    #BookingConfirmationPage {
+      margin-top: 0px;
+    }
+
+    #BookingConfirmPageBtn {
+        margin: 30px;
+    }
+
+    .footer-logo {
+        width: 150px;
+        height: 200px;
+        border-radius: 25px;
+        margin-top: 60px;
+        margin-bottom: 0px;
+    }
+
+    .FooterSectionContainer {
+        /* background: var(--primary-color);
+        display: flex;
+        flex-wrap: wrap;
+        margin: 10px 0;
+        justify-content: center;
+        color: white;
+        gap: 40px; */
+        flex-direction: column;
+        align-items: center;
+        gap: 0px;
+    }
+
+    .FooterSectionContainer nav{
+        width: 80%;
+    }
+
+    .FooterSectionContainer a{
+        text-decoration: underline;
+    }
+
+    .FooterSectionContainer ul{
+        margin: 0px;
+        flex-direction: row;
+        gap:20px;
+        margin-bottom: 20px;
+    }
+
+    .FooterSectionContainerH1 {
+        width: 100%;
+        margin-bottom: 0px;
+    }
+}
+
+.NavigationBar{
+    list-style: none;
+}
+

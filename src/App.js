@@ -1,6 +1,6 @@
 import './App.css';
 import React, {useReducer} from 'react'
-import {BrowserRouter, Route, Routes} from "react-router-dom";
+import { Route, Routes} from "react-router-dom";
 import HomePage from './components/HomePage';
 import NavigationBar from './components/NavigationBar';
 import Footer from './components/Footer';
@@ -61,18 +61,16 @@ function App() {
         <header>
           <NavigationBar/>
         </header>
-        <BrowserRouter>
           <Routes>
             <Route path='/' element={<HomePage/>} />
             <Route path='/BookingPage' element={<BookingPage state={state} dispatch={dispatch}/>} />
             <Route path='/BookingConfirmation' element={<BookingConfirmationPage userName={userInputs.userFullName}/>} />
           </Routes>
-        </BrowserRouter>
       </div>
       <footer>
         <Footer/>
         <div id='CopyRightText'>
-          <p>&copy;2025 Littel Lemon. All rights reserved</p>
+          <p>©2025 Littel Lemon. All rights reserved</p>
         </div>
       </footer>
     </>
