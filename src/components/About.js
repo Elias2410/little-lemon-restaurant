@@ -46,7 +46,7 @@ const About = () => {
       <div className='AboutSectionLeftSide'>
         <p style={{margin:"0px",color:"#F4CE14",fontFamily:'Markazi Text',fontSize:"65px",fontWeight:"bold"}}>Little Lemon</p>
         <p style={{margin:"0px",color:"#495E57",fontFamily:'Markazi Text',fontSize:"35px"}}>Chicago</p>
-        <p style={{width:"350px",height:"200px"}}>Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet. Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. </p>
+        <p className='ParagraphWithMinWidth' style={{width:"350px",height:"200px"}}>Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet. Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. </p>
       </div>
       <div className='AboutSectionRightSide' style={containerStyle}>
         <img style={img1Style} src={GreekSalad}/>

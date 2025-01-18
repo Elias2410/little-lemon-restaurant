@@ -4,7 +4,7 @@ import FooterLogo from './assets/FooterLogo.png'
 const Footer = () => {
   return (
     <section className='FooterSectionContainer'>
-            <img style={{width:"200px",height:"300px",borderRadius:"25px",margin:"60px 0px"}} src={FooterLogo}/>
+            <img className='footer-logo' src={FooterLogo} alt="Footer Logo"/>
             <nav>
                 <ul>
                     <h1>Doormat Nav igation</h1>

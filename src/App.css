@@ -1,556 +1,709 @@
-/* src/styles.css (or any other CSS file) */
 @import url('https://fonts.googleapis.com/css2?family=Markazi+Text&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Karla&display=swap');
 
-/* div#root{
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-} */
-
-.NavigationBarContainer{
-  display: flex;
-  justify-content: center;
-  background: white;
-  margin: 10px;
-  padding: 10px;
-  gap: 20px;
-  flex-wrap: wrap;
+/* Define CSS Variables */
+:root {
+    --primary-color: #495E57;
+    --secondary-color: #F4CE14;
+    --accent-color: #EE9972;
+    --text-font: 'Karla', sans-serif;
+    --title-font: 'Markazi Text', serif;
 }
 
-.NavigationBar{
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 30px;
+/* Define Reusable Classes */
+.title-font {
+    font-family: var(--title-font);
+    font-size: 35px;
+    font-weight: bold;
+}
+
+.text-font {
+    font-family: var(--text-font);
+}
+
+.primary-color {
+    color: var(--primary-color);
+}
+
+.secondary-color {
+    color: var(--secondary-color);
+}
+
+/* Remove Spinners from number inputs */
+.input-number-no-spinners::-webkit-inner-spin-button,
+.input-number-no-spinners::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* General styles */
+.app-container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Navigation Bar styles */
+.NavigationBarContainer {
+    display: flex;
+    justify-content: center;
+    background: white;
+    margin: 10px;
+    padding: 10px;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.NavigationBar {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 30px;
 }
 
 .NavigationBar a {
-  color: #495E57;
-  font-weight: bold;
-  text-decoration: none;
+    color: var(--primary-color);
+    font-weight: bold;
+    text-decoration: none;
 }
 
 .NavigationBar a:hover {
-  color: #F4CE14;
-  cursor: pointer;
+    color: var(--secondary-color);
+    cursor: pointer;
 }
 
-#NavigationBarLogoImg{
-  width: 180px;
-  height: 60px;
+.navigation-bar-logo {
+    width: 180px;
+    height: 60px;
 }
 
-#NavigationBarLogo:hover{
-  border: 2px solid #F4CE14;
-  cursor: pointer;
+.navigation-bar-logo:hover {
+    border: 2px solid var(--secondary-color);
+    cursor: pointer;
 }
 
-.HeroSectionContainer{
-  display: flex;
-  justify-content:space-evenly;
-  width: 100%;
-  background: #495E57;
-  flex-wrap: wrap;
-  height: 25%;
+/* Hero Section Styles */
+.HeroSectionContainer {
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+    background: var(--primary-color);
+    flex-wrap: wrap;
+    height: 25%;
 }
 
-.HeroSectionLeft{
-  color: white;
+.HeroSectionLeft {
+    color: white;
 }
 
-.HeroSectionRight{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 250px;
-  height: 304px;
+.HeroSectionRight {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 250px;
+    height: 304px;
 }
 
-#HeroSectionResturantName{
-  font-family: 'Markazi Text', serif;
-  font-size: 45px;
-  color: #F4CE14;
-  margin: 0;
-  /* margin-top: 50px; */
-  padding: 0;
-  height: 35px;
+#HeroSectionResturantName {
+    @extend .title-font;
+    color: var(--secondary-color);
+    margin: 0;
+    padding: 0;
+    height: 35px;
 }
 
-#HeroSectionResturantLocation{
-  font-family: 'Markazi Text', serif;
-  font-size: 30px;
-  margin: 0;
-  padding: 0;
-  height: 50px;
+#HeroSectionResturantLocation {
+    font-family: var(--title-font);
+    font-size: 30px;
+    margin: 0;
+    padding: 0;
+    height: 50px;
 }
 
-.HeroSectionLeft p{
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  font-family: 'Karla', sans-serif;
-  width: 250px;
-  height: 100px;
+.HeroSectionLeft p {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    font-family: var(--text-font);
+    width: 250px;
+    height: 100px;
 }
 
-#ReserveTableBtn{
-  all: unset;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  color: black;
+#ReserveTableBtn {
+    all: unset;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    color: black;
+    font-weight: bold;
+    background: var(--secondary-color);
+    width: 200px;
+    height: 50px;
+    border-radius: 25px;
+}
+
+#ReserveTableBtn:hover {
+    color: white;
+    background: var(--accent-color);
+    cursor: pointer;
+}
+
+.hero-section-img {
+    width: 200px;
+    height: 300px;
+    border-radius: 25px;
+}
+
+.paragraph-button-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Highlights Styles */
+.HighlightsContainer {
+    margin-top: 60px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.HighlightsTitleAndBtn {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: space-evenly;
+    margin-bottom: 30px;
+}
+
+#HighlightsOnlineMenuBtn {
+    all: unset;
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+    background-color: var(--secondary-color);
+    color: black;
+    font-weight: bold;
+    border-radius: 25px;
+    width: 200px;
+    height: 50px;
+}
+
+#HighlightsOnlineMenuBtn:hover {
+    background: var(--accent-color);
+    color: white;
+    cursor: pointer;
+}
+
+/* Dish Card Styles */
+.DishCardContainer {
+    background: #EDEFEE;
+    border-radius: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 200px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.DishCardNameAndPrice {
+    display: flex;
+    flex-wrap: wrap;
+    width: 80%;
+    justify-content: space-between;
+}
+
+#DishCardDishDescription {
+    width: 80%;
+    height: 40%;
+    font-size: 10px;
+}
+
+#DishCardName {
+    font-size: 15px;
+}
+
+#DishCardPrice {
+    font-size: 15px;
+    color: var(--accent-color);
+}
+
+.dish-card-image {
+    width: 100%;
+    height: 200px;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+}
+
+#BikeIcon {
+    width: 30px;
+    height: 20px;
+}
+
+.DishCardOrderOnlineAndBike {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    width: 80%;
+    gap: 10px;
+    margin-bottom: 5%;
+}
+
+.DishCardOrderOnlineAndBike a {
+    text-decoration: none;
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+.DishCardOrderOnlineAndBike a:hover {
+    color: var(--accent-color);
+}
+
+.HighlightsDishList {
+    padding: 0px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+/* Testimonials Styles */
+.TestimonialsSectionContainer {
+    background: #EDEFEE;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5%;
+    margin-top: 60px;
+    margin-bottom: 60px;
+}
+
+.UsersCardsContainer {
+    display: flex;
+    flex-wrap: wrap;
+    width: 80%;
+    justify-content: center;
+    gap: 10px;
+}
+
+/* User Feedback Card Styles */
+.UserFeedbackCardContainer {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    background: white;
+    border-radius: 15px;
+    width: 200px;
+    margin-bottom: 60px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.UserFeedbackCardContainer p {
+    font-size: 10px;
+}
+
+.UserFeedbackCardImgAndComment {
+    display: flex;
+    justify-content: space-evenly;
+    gap: 10%;
+}
+
+.StarsContainer {
+    display: flex;
+}
+
+#UserFeedbackCardUserComment {
+    display: flex;
+    justify-content: center;
+    width: 80%;
+    color: var(--primary-color);
+}
+
+/* About Section Styles */
+.AboutSectionContainer {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-top: 60px;
+    margin-bottom: 60px;
+    height: auto;
+}
+
+.AboutSectionLeftSide {
+    display: flex;
+    flex-direction: column;
+}
+
+.AboutSectionRightSide {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+/* Footer Styles */
+.FooterSectionContainer {
+    background: var(--primary-color);
+    display: flex;
+    flex-wrap: wrap;
+    margin: 10px 0;
+    justify-content: center;
+    color: white;
+    gap: 40px;
+}
+
+.FooterSectionContainer a {
+    all: unset;
+}
+
+.FooterSectionContainer a:hover {
+    cursor: pointer;
+    color: var(--accent-color);
+}
+
+.FooterSectionContainer ul {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    padding: 0px;
+    margin: 60px 0;
+}
+
+.FooterSectionContainer h1 {
+    color: var(--secondary-color);
+}
+.footer-logo {
+    width: 200px;
+    height: 300px;
+    border-radius: 25px;
+    margin: 60px 0;
+}
+
+#CopyRightText {
+    display: flex;
+    justify-content: center;
+    color: var(--primary-color);
+}
+
+/* Booking Page Styles */
+.BookingPageContainer {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-items: center;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+
+.BookingPageContainer input {
+    margin: 5px 0;
+}
+
+.BookingPageContainer label {
+    color: var(--primary-color);
+}
+
+.BookingPageContainer h1 {
+   @extend .title-font;
+    color: var(--secondary-color);
+    margin-bottom: 0;
+}
+
+.BookingPageContainer legend {
+   @extend .title-font;
+    color: var(--primary-color);
+    margin-bottom: 0;
   font-weight: bold;
-  background: #F4CE14;
-  width: 200px;
-  height: 50px;
-  border-radius: 25px;
 }
 
-#ReserveTableBtn:hover{
-  color: white;
-  background: #EE9972;
-  cursor: pointer;
+.BookingPageContainer fieldset,
+.BookingPageContainer header {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: center;
 }
 
-#HeroSectionImg{
-  width: 200px;
-  height: 300px;
-  border-radius: 25px;
-  /* margin: 10px; */
-
-}
-#ParagraphBtnContainer{
-display: flex;
-flex-direction: column;
-gap: 20px;
+/* Header styles */
+.ReserveTableHeader {
+    display: flex;
+    flex-wrap: wrap;
+    width: 80%;
+    background: var(--primary-color);
+    justify-content: space-evenly;
+    margin-bottom: 60px;
 }
 
-.HighlightsContainer{
-  margin-top: 60px;
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
+#ReserveTableHeaderLeftSide {
+    width: 25%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
 }
 
-.HighlightsTitleAndBtn{
-  display: flex;
-  flex-wrap: wrap;
-  width: 100%;
-  justify-content:space-evenly;
-  margin-bottom: 30px;
+#ReserveTableHeaderParagraph {
+    color: white;
 }
 
-#HighlightsOnlineMenuBtn{
-  all: unset;
-  display: flex;
-  justify-content: center;
-  justify-items: center;
-  align-items: center;
-  background-color: #F4CE14;
-  color: black;
-  font-weight: bold;
-  border-radius: 25px;
-  width: 200px;
-  height: 50px;
+#ReserveTableHeaderRightSide {
+    width: 25%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 60px 0;
 }
 
-#HighlightsOnlineMenuBtn:hover{
-  background: #EE9972;
-  color: white;
-  cursor: pointer;
+#ReserveTableHeaderImg {
+    border-radius: 25px;
 }
 
-.DishCardContainer{
-  background: #EDEFEE;
-  border-radius: 25px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 200px;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+/* Customer details Styles */
+.CustomerDetails {
+    background: white;
 }
 
-.DishCardNameAndPrice{
-  display: flex;
-  flex-wrap: wrap;
-  width: 80%;
-  justify-content: space-between;
+#CustomerDetailsLeftSide {
+    width: 25%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
 }
 
-#DishCardDishDescription{
-  width: 80%;
-  height: 40%;
-  font-size: 10px;
+#CustomerDetailsRightSide {
+    display: flex;
+    justify-content: center;
+    margin: 60px 0;
+    width: 25%;
+}
+.customer-details-img {
+    width: 200px;
+    height: 200px;
+    border-radius: 25px;
+}
+/* Reservation Details Styles */
+#ReservationDetailsLeftSide {
+    width: 25%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
 }
 
-#DishCardName{
-  font-size: 15px;
+#ReservationDetailsRightSide {
+    display: flex;
+    justify-content: center;
+    margin: 60px 0;
+    width: 25%;
+}
+.reservation-details-img {
+    width: 200px;
+    height: 200px;
+    border-radius: 25px;
 }
 
-#DishCardPrice{
-  font-size: 15px;
-  color: #EE9972;
+/* Special Requests Styles */
+#SpecialRequestsLeftSide {
+    width: 25%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin-bottom: 60px;
 }
 
-#DishCardDishImg{
-  width: 100%;
-  height: 200px;
-  border-top-left-radius: 25px;
-  border-top-right-radius: 25px;
+#SpecialRequestsRightSide {
+    width: 25%;
+    min-width: 380px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 60px;
 }
 
-
-#BikeIcon{
-  width: 30px;
-  height: 20px;
+input,
+textarea,
+select,
+option {
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    padding: 10px;
+    margin: 5px 0;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    width: 40%;
+    box-sizing: border-box;
 }
 
-.DishCardOrderOnlineAndBike{
-  display: flex;
-  justify-content: flex-start;
-  flex-wrap: wrap;
-  width: 80%;
-  gap: 10px;
-  margin-bottom: 5%;
+select:focus,
+input:focus,
+textarea:focus {
+    /* border-color: var(--secondary-color); */
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
 }
 
-.DishCardOrderOnlineAndBike a{
-  text-decoration: none;
-  font-weight: bold;
-  color: #495E57;
-}
-.DishCardOrderOnlineAndBike a:hover{
-  color: #EE9972;
-}
-
-.HighlightsDishList{
-  padding: 0px;
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  flex-wrap: wrap;
+/* Confirmation Details Styles */
+.ConfirmationDetails {
+    background: #EDEFEE;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 60px;
 }
 
-.TestimonialsSectionContainer{
-  background: #EDEFEE;
-  display: flex;
-  flex-direction: column;
-  justify-content:center;
-  align-items: center;
-  gap: 5%;
-  margin-top: 60px;
-  margin-bottom: 60px;
+#Terms,
+#Subscribe {
+    display: flex;
+    width: 300px;
 }
 
-.UsersCardsContainer{
-  display: flex;
-  flex-wrap: wrap;
-  width: 80%;
-  justify-content:center;
-  gap: 10px;
+#TermsCheckbox,
+#SubscribeCheckbox {
+    width: 50px;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    padding: 10px;
+    margin: 5px 0;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
 }
 
-.UserFeedbackCardContainer{
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  background:white;
-  border-radius: 15px;
-  width: 200px;
-  margin-bottom: 60px;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+#ConfirmationDetailsBtn {
+    all: unset;
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+    background-color: var(--secondary-color);
+    color: black;
+    font-weight: bold;
+    border-radius: 25px;
+    width: 200px;
+    height: 50px;
 }
 
-.UserFeedbackCardContainer p{
-  font-size: 10px;
-}
-
-.UserFeedbackCardImgAndComment{
-  display: flex;
-  justify-content: space-evenly;
-  gap: 10%;
-}
-
-.StarsContainer{
-  display:"flex";
-}
-
-#UserFeedbackCardUserComment{
-  display: flex;
-  justify-content: center;
-  width: 80%;
-  color: #495E57;
-}
-
-.AboutSectionContainer{
-  display: flex;
-  flex-wrap: wrap;
-  width: 100%;
-  justify-content:space-evenly;
-  align-items: center;
-  margin-top: 60px;
-  margin-bottom: 60px;
-  height: auto;
-}
-.AboutSectionLeftSide{
-  display: flex;
-  flex-direction: column;
-}
-.AboutSectionRightSide{
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-}
-
-.FooterSectionContainer{
-  background: #495E57;
-  display: flex;
-  flex-wrap: wrap;
-  margin: 10px 0px;
-  justify-content: center;
-  color: white;
-  gap: 40px;
-}
-.FooterSectionContainer a{
-  all:unset;
-}
-.FooterSectionContainer a:hover{
-  cursor: pointer;
-  color: #EE9972;
-}
-.FooterSectionContainer ul{
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  padding: 0px;
-  margin: 60px 0px;
-}
-.FooterSectionContainer h1{
-  color: #F4CE14;
-}
-
-#CopyRightText{
-  display: flex;
-  justify-content: center;
-  color: #495E57;
-}
-
-.BookingPageContainer{
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  width: 100%;
-  justify-items: center;
-  justify-content: center;
-  align-items: center;
-  align-content:center;
-}
-.BookingPageContainer input{
-  margin: 5px 0px;
-}
-.BookingPageContainer label{
-  color: #495E57;
-}
-.BookingPageContainer h1,.BookingPageContainer legend{
-  color: #F4CE14;
-  font-family: 'Markazi Text', serif;
-  font-size: 45px;
-  margin-bottom: 0px;
-}
-.BookingPageContainer fieldset,.BookingPageContainer header{
-  display: flex;
-  flex-wrap: wrap;
-  width: 100%;
-  justify-content:space-evenly;
-  margin-bottom: 30px;
-  gap: 80px;
-}
-.ReserveTableHeader{
-  display: flex;
-  flex-wrap: wrap;
-  width: 80%;
-  background: #495E57;
-  justify-content:space-evenly;
-  margin-bottom: 60px;
-}
-#ReserveTableHeaderLeftSide{
-  width: 25%;
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-}
-/* #ReserveTableHeaderTitle{
-  color: #F4CE14;
-  font-family: 'Markazi Text', serif;
-  font-size: 45px;
-  margin-bottom: 0px;
-} */
-#ReserveTableHeaderParagraph{
-  color: white;
-}
-#ReserveTableHeaderRightSide{
-  width: 25%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  flex-wrap: wrap;
-  margin: 60px 0px;
-}
-#ReserveTableHeaderImg{
-  border-radius: 25px;
-}
-.CustomerDetails{
-  background: white;
-}
-#CustomerDetailsLeftSide{
-  width: 25%;
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-}
-input[type='number']::-webkit-inner-spin-button,
-input[type='number']::-webkit-outer-spin-button{
-  -webkit-appearance: none;
-  margin: 0px;
-}
-/* input[type='number']:focus:-webkit-inner-spin-button,
-input[type='number']:focus:-webkit-outer-spin-button{
-  -webkit-appearance: none;
-  margin: 0px;
-} */
-/* #CustomerDetailsTitle{
-  color: #F4CE14;
-  font-family: 'Markazi Text', serif;
-  font-size: 45px;
-  margin-bottom: 0px;
-} */
-#CustomerDetailsRightSide{
-  display: flex;
-  justify-content: center;
-  margin: 60px 0px;
-  width: 25%;
-}
-#CustomerDetailsImg{
-  width: 200;
-  height: 200px;
-  border-radius: 25px;
-}
-.ReservationDetails{
-  background: #EDEFEE;
-}
-#ReservationDetailsLeftSide{
-  width: 25%;
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-}
-#ReservationDetailsRightSide{
-  display: flex;
-  justify-content: center;
-  margin: 60px 0px;
-  width: 25%;
-}
-#ReservationDetailsImg{
-  width: 200;
-  height: 200px;
-  border-radius: 25px;
-}
-#SpecialRequestsLeftSide{
-  width: 25%;
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  margin-bottom: 60px;
-}
-#SpecialRequestsRightSide{
-  width: 25%;
-  min-width: 380px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 60px;
-}
-input,textarea,select,option {
-  font-family: Arial, sans-serif;
-  font-size: 16px;
-  padding: 10px;
-  margin: 5px 0;
-  border: 2px solid #ccc;
-  border-radius: 5px;
-  width: 100%;
-  box-sizing: border-box;
-}
-input,textarea:focus {
-  border-color:#F4CE14;
-  outline: none;
-  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
-}
-
-.ConfirmationDetails{
-  background: #EDEFEE;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 60px;
-}
-#Terms,#Subscribe{
-  display: flex;
-  width: 300px;
-}
-#TermsCheckbox,#SubscribeCheckbox{
-  width: 50px;
-  font-family: Arial, sans-serif;
-  font-size: 16px;
-  padding: 10px;
-  margin: 5px 0;
-  border: 2px solid #ccc;
-  border-radius: 5px;
-  box-sizing: border-box;
-}
-
-/* #ConfirmationDetailsCheckboxs{
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-} */
-#IAgreeOn{
-  width: 25%;
-}
-/* #TermsAndSubscribe{
-  width: 25%;
-} */
-/* #TermsAndSubscribe div{
-  background-color: #F4CE14;
-  display: flex;
-  align-content: space-between;
-} */
-#ConfirmationDetailsBtn{
-  all: unset;
-  display: flex;
-  justify-content: center;
-  justify-items: center;
-  align-items: center;
-  background-color: #F4CE14;
-  color: black;
-  font-weight: bold;
-  border-radius: 25px;
-  width: 200px;
-  height: 50px;
-}
-#ConfirmationDetailsBtn:hover{
-  color: white;
-  background: #EE9972;
-  cursor: pointer;
+#ConfirmationDetailsBtn:hover {
+    color: white;
+    background: var(--accent-color);
+    cursor: pointer;
 }
 #ConfirmationDetailsTitle{
   margin-top: 0px;
+}
+
+.BookingPageContainer fieldset {
+    flex-direction: column;
+    justify-content: center;
+    flex-wrap: nowrap;
+    width: 100%;
+}
+
+.BookingFormContainer {
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    align-items: center;
+}
+
+#BookingFormSubmitBtn {
+    all: unset;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    color: black;
+    font-weight: bold;
+    background: var(--secondary-color);
+    width: 200px;
+    height: 50px;
+    border-radius: 25px;
+    margin: 60px;
+}
+
+#BookingFormSubmitBtn:hover {
+    color: white;
+    background: var(--accent-color);
+    cursor: pointer;
+}
+
+.LabelAndInput {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+label {
+    width: 143px;
+}
+
+#BookingConfirmPageBtn {
+    all: unset;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    color: black;
+    font-weight: bold;
+    background: var(--secondary-color);
+    width: 200px;
+    height: 50px;
+    border-radius: 25px;
+    margin: 60px;
+}
+
+#BookingConfirmPageBtn:hover {
+    color: white;
+    background: var(--accent-color);
+    cursor: pointer;
+}
+
+/* Input Error Styles */
+.error {
+    font-size: 10px;
+    color: red;
+    display: flex;
+    justify-content: center;
+}
+
+.input-error {
+    border: 2px solid red;
+}
+
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+  .NavigationBarContainer {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .HeroSectionContainer {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+main{
+  width: 100%;
+}
+
+select, textarea, input{
+  min-width: 250px;
+}
+
+.ParagraphWithMinWidth{
+  min-width: 325px;
 }

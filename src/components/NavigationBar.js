@@ -5,7 +5,7 @@ import App from '../App'
 const NavigationBar = () => {
   return (
     <nav className='NavigationBarContainer'>
-        <a href={<App.js/>}><img src={logoimg} id='NavigationBarLogoImg' /></a>
+        <a href="/"><img src={logoimg} className='navigation-bar-logo' alt="Logo" /></a>
         <ul className='NavigationBar'>
             <a href=''>Home</a>
             <a href=''>About</a>

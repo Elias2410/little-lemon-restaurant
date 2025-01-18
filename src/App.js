@@ -5,6 +5,7 @@ import HomePage from './components/HomePage';
 import NavigationBar from './components/NavigationBar';
 import Footer from './components/Footer';
 import BookingPage from './components/BookingPage';
+import BookingConfirmationPage from './components/BookingConfirmationPage';
 
 function App() {
 
@@ -56,16 +57,18 @@ function App() {
 
   return(
     <>
-      <script src="https://raw.githubusercontent.com/courseraap/capstone/main/api.js"></script>
-      <header>
-        <NavigationBar/>
-      </header>
-      <BrowserRouter>
-        <Routes>
-          <Route path='/' element={<HomePage/>} />
-          <Route path='/BookingPage' element={<BookingPage state={state} dispatch={dispatch}/>} />
-        </Routes>
-      </BrowserRouter>
+      <div className="app-container">
+        <header>
+          <NavigationBar/>
+        </header>
+        <BrowserRouter>
+          <Routes>
+            <Route path='/' element={<HomePage/>} />
+            <Route path='/BookingPage' element={<BookingPage state={state} dispatch={dispatch}/>} />
+            <Route path='/BookingConfirmation' element={<BookingConfirmationPage userName={userInputs.userFullName}/>} />
+          </Routes>
+        </BrowserRouter>
+      </div>
       <footer>
         <Footer/>
         <div id='CopyRightText'>
