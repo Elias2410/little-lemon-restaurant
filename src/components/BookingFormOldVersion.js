@@ -3,7 +3,7 @@ import CustomerDetails from './assets/CustomerDetails.jpg'
 import ReserveTable from './assets/ReservTable.jpg'
 import accessibility from './assets/accessibility.jpg'
 
-const BookingFormTest = () => {
+const BookingFormOldVersion = () => {
 
     const [userFullName,setUserFullName]=useState('')
     const [userEmail,setUserEmail]=useState('')
@@ -181,7 +181,7 @@ const BookingFormTest = () => {
   )
 }
 
-export default BookingFormTest
+export default BookingFormOldVersion
 
 
 // import React, { useEffect, useState } from 'react'

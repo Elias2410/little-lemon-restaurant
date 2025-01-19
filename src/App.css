@@ -852,3 +852,90 @@ select, textarea, input{
     list-style: none;
 }
 
+/* Navigation Bar styles */
+.NavigationBarContainer {
+    display: flex;
+    justify-content: center;
+    background: white;
+    margin: 10px;
+    padding: 10px;
+    gap: 20px;
+    flex-wrap: wrap;
+    position: relative; /* Needed for absolute positioning of burger icon */
+}
+
+.NavigationBar {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.NavigationBar a {
+    color: var(--primary-color);
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.NavigationBar a:hover {
+    color: var(--secondary-color);
+    cursor: pointer;
+}
+
+.navigation-bar-logo {
+    width: 180px;
+    height: 60px;
+}
+
+.navigation-bar-logo:hover {
+    border: 2px solid var(--secondary-color);
+    cursor: pointer;
+}
+
+/* Burger Menu Icon Styles */
+.burger-menu-icon {
+  display: none; /* Initially hide on larger screens */
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: var(--primary-color);
+  position: absolute;
+  top: 10px;
+    right: 10px;
+  padding: 5px;
+  z-index: 10; /* Ensure it's above the other content */
+
+}
+.burger-menu-icon:hover {
+    color: var(--secondary-color);
+}
+/* Media query for smaller screens */
+@media (max-width: 768px) {
+    .NavigationBarContainer {
+      flex-direction: column;
+      align-items: center;
+    }
+    .NavigationBar {
+        display: none; /* Hide navigation links by default */
+        flex-direction: column;
+        align-items: center;
+        position: absolute;
+        top: 70px; /* Adjust to position below the header */
+        left: 0;
+        width: 100%;
+        background-color: white;
+        padding: 10px;
+        z-index: 9; /* Ensure it's above other content */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+    .NavigationBar.active {
+        display: flex; /* Show the navigation links when menu is active */
+    }
+
+  .burger-menu-icon {
+      display: block; /* Show the burger menu icon */
+      left: 225px;
+      top: 25px;
+    }
+  }
