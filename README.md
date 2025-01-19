@@ -1,70 +1,152 @@
-# Getting Started with Create React App
+# Little Lemon Restaurant Website
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This repository contains the source code for the Little Lemon Restaurant website, a platform for customers to explore the menu, make reservations, and learn about the restaurant.
 
-## Available Scripts
+## Table of Contents
 
-In the project directory, you can run:
+*   [About](#about)
+*   [Features](#features)
+*   [Technologies Used](#technologies-used)
+*   [Getting Started](#getting-started)
+    *   [Prerequisites](#prerequisites)
+    *   [Installation](#installation)
+    *   [Running the Application](#running-the-application)
+*   [Project Structure](#project-structure)
+*   [Testing](#testing)
+*   [Contributing](#contributing)
+*   [License](#license)
+*   [Contact](#contact)
 
-### `npm start`
+## About
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+The Little Lemon Restaurant website is designed to provide a user-friendly online experience for customers. It allows users to browse the menu, see specials, read testimonials, and book tables for dining. The site is built with a focus on responsiveness and accessibility, ensuring a great user experience across various devices.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Features
 
-### `npm test`
+*   **Homepage:**
+    *   Hero section with restaurant name, location, and brief description.
+    *   Highlights section showcasing weekly specials with online ordering links.
+    *   Testimonials section for customer reviews.
+    *   About section with restaurant history and information.
+*   **Navigation:**
+    *   Responsive navigation bar with links to different sections.
+    *   Hamburger menu for smaller screens to provide better user experience.
+*   **Booking Form:**
+    *   Interactive form to book a table with date, time, and guest selection.
+    *   Form validations to enhance user interaction
+    *   Special requests section for special needs.
+    *   Customer details form for user information.
+    *   Confirmation section to acknowledge the reservation and update the user.
+*   **Accessibility:**
+    *   The site is built with semantic HTML and ARIA attributes to be accessible.
+    *   The app is fully responsive and functional across different devices and screen sizes
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Technologies Used
 
-### `npm run build`
+*   **React:** Front-end library for building user interfaces.
+*   **React Router:** Library for navigation between different pages.
+*   **CSS:** Styling language using custom CSS for website design.
+*   **Jest:** JavaScript testing framework for unit testing.
+*   **Testing Library:** Tools for writing unit tests for React components.
+*   **Font Awesome:** Icon toolkit for adding icons for a better experience
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Getting Started
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Follow these instructions to get a copy of the project up and running on your local machine.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Prerequisites
 
-### `npm run eject`
+*   [Node.js](https://nodejs.org/): Make sure you have Node.js installed.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Installation
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+1.  Clone the repository:
+    ```bash
+    git clone https://github.com/Elias2410/little-lemon-restaurant.git
+    ```
+2.  Navigate into the project directory:
+    ```bash
+    cd little-lemon-restaurant
+    ```
+3.  Install dependencies:
+    ```bash
+    npm install
+    ```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Running the Application
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+To start the development server, run:
 
-## Learn More
+```bash
+npm start
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+The application will be available at http://localhost:3000
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Project Structure:
+little-lemon-project/
+├── node_modules/
+├── public/
+│   └── index.html
+├── src/
+│   ├── assets/
+│   │   ├── logo.png
+│   │   ├── header.jpg
+│   │   └── ...
+│   ├── components/
+│   │   ├── About.js
+│   │   ├── BookingConfirmationPage.js
+│   │   ├── BookingForm.js
+│   │   ├── BookingPage.js
+│   │   ├── DishCard.js
+│   │   ├── Footer.js
+│   │   ├── HeroSection.js
+│   │   ├── Highlights.js
+│   │   ├── HomePage.js
+│   │   ├── NavigationBar.js
+│   │   ├── Testimonials.js
+│   │   └── UserFeedbackCard.js
+│   ├── App.js
+│   ├── App.css
+│   ├── index.js
+│   ├── index.css
+│   ├── ... (other files)
+│   └── ... (test files)
+├── package.json
+├── package-lock.json
+├── README.md
+└── .gitignore
 
-### Code Splitting
+src/assets/: Contains static assets like images and icons.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+src/components/: Contains all React components used in the app.
 
-### Analyzing the Bundle Size
+src/: Contains the main App.js, entry point index.js, global styles.css and other necessary project files.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+public/: Contains the main HTML file (index.html) that React renders into.
 
-### Making a Progressive Web App
+Testing:
+The project includes unit tests for all the components. To run the tests, use the command:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+These tests help maintain the quality of the code and ensure components are working as intended.
 
-### Advanced Configuration
+Contributing
+If you would like to contribute to the project, please follow these steps:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+Fork the repository.
 
-### Deployment
+Create a new branch for your feature or bug fix.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+Make your changes.
 
-### `npm run build` fails to minify
+Write tests for your changes.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Submit a pull request.
+
+License
+This project is licensed under the MIT License.
+
+Contact
+For any questions or concerns, please contact:
+
+Your Name: Elias Yahya Mahmoud
+Your Email: eliasyahya100@gmail.com
